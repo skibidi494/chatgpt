@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Preppy Website</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and General Styles */
+        body {
+            font-family: 'Brush Script MT', cursive; /* Cursive Font */
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #b2dfdb; /* Mint Green */
+            color: white;
+            text-align: center;
+            padding: 0.75em 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75em 1.5em;
+            display: inline-block;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #80cbc4;
+            border-radius: 5px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #d1c4e9; /* Lilac */
+            color: #4a2c77; /* Darker Lilac */
+            padding: 2em;
+            text-align: center;
+            border-bottom: 4px solid #9e8bb4;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+            animation: wave 2s infinite;
+        }
+
+        header p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        /* Content Styles */
+        .content {
+            padding: 3em 1em;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        .content h2 {
+            color: #4a2c77;
+            margin-bottom: 0.5em;
+            animation: wave 3s infinite;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+
+        .content button {
+            padding: 0.75em;
+            background-color: #4a2c77;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .content button:hover {
+            background-color: #9e8bb4;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #d1c4e9;
+            color: #4a2c77;
+            text-align: center;
+            padding: 1em;
+            border-top: 4px solid #9e8bb4;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Wavy Animation */
+        @keyframes wave {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Dynamic Animation */
+        .wave {
+            display: inline-block;
+            animation: wave 3s infinite ease-in-out;
+        }
+
+        .wave:nth-child(odd) {
+            animation-delay: 1s;
+        }
+
+        /* Wavy Sections */
+        .wavy {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wavy::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: #d1c4e9;
+            clip-path: ellipse(50% 100% at 50% 100%);
+            animation: wave-bottom 6s infinite ease-in-out;
+        }
+
+        @keyframes wave-bottom {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                padding: 0.5em 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+        <h1 class="wave">Welcome to Our Stylish Website!</h1>
+        <p class="wave">Explore elegance with a modern twist and pastel vibes.</p>
+    </header>
+
+    <div class="content wavy" id="home">
+        <h2 class="wave">Home</h2>
+        <p>Welcome to our preppy and dynamic site! Scroll down to explore more about our chic design and stylish offerings. Our website provides a refreshing visual experience with pastel colors and lively animations. We hope you enjoy the smooth and interactive browsing experience.</p>
+        <button onclick="scrollToSection('about')">Learn More About Us</button>
+    </div>
+
+    <div class="content wavy" id="about">
+        <h2 class="wave">About Us</h2>
+        <p>Our mission is to blend modern elegance with a touch of playfulness. We strive to create content that is both sophisticated and engaging. Discover more about our values, the passion behind our designs, and how we aim to deliver quality with style and fun.</p>
+        <button onclick="scrollToSection('services')">See Our Services</button>
+    </div>
+
+    <div class="content wavy" id="services">
+        <h2 class="wave">Our Services</h2>
+        <p>Explore the range of services we offer, designed to meet your needs with a blend of sophistication and charm. Whether you’re seeking tailored solutions or stylish inspirations, we have something for everyone. Our offerings are crafted to provide a perfect mix of elegance and modernity.</p>
+        <button onclick="scrollToSection('contact')">Get in Touch</button>
+    </div>
+
+    <div class="content wavy" id="contact">
+        <h2 class="wave">Contact Us</h2>
+        <p>We would love to hear from you! Use our contact form to send us your questions, feedback, or just to connect. We are eager to assist you and will respond as soon as possible.</p>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Preppy Dynamic Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to scroll to a specific section smoothly
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
